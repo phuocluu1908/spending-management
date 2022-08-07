@@ -2,53 +2,47 @@ import React from "react";
 import styled from "styled-components";
 
 const contents = [
-  { name: "Breakfast", price: 20000, description: "Just oke" },
+  { name: "Breakfast", price: 20000, description: "Just oke", created: '07/08/2022 - 07:30:20' },
   {
     name: "Lunch",
     price: 40000,
     description: "Having lunch at the company with collegue",
+    created: '07/08/2022 - 07:30:20',
   },
-  { name: "Dinner", price: 10000, description: "" },
+  { name: "Dinner", price: 10000, description: "", created: '07/08/2022 - 07:30:20' },
   {
     name: "Coffee",
     price: 40000,
     description: "Drinking coffee helps us sleep better",
+    created: '07/08/2022 - 07:30:20',
   },
-  { name: "Breakfast", price: 20000, description: "Just oke" },
+  { name: "Breakfast", price: 20000, description: "Just oke", created: '07/08/2022 - 07:30:20' },
   {
     name: "Lunch",
     price: 40000,
     description: "Having lunch at the company with collegue",
+    created: '07/08/2022 - 07:30:20',
   },
-  { name: "Dinner", price: 10000, description: "" },
+  { name: "Dinner", price: 10000, description: "", created: '07/08/2022 - 07:30:20' },
   {
     name: "Coffee",
     price: 40000,
     description: "Drinking coffee helps us sleep better",
+    created: '07/08/2022 - 07:30:20',
   },
-  { name: "Breakfast", price: 20000, description: "Just oke" },
+  { name: "Breakfast", price: 20000, description: "Just oke", created: '07/08/2022 - 07:30:20' },
   {
     name: "Lunch",
     price: 40000,
     description: "Having lunch at the company with collegue",
+    created: '07/08/2022 - 07:30:20',
   },
-  { name: "Dinner", price: 10000, description: "" },
+  { name: "Dinner", price: 10000, description: "", created: '07/08/2022 - 07:30:20' },
   {
     name: "Coffee",
     price: 40000,
     description: "Drinking coffee helps us sleep better",
-  },
-  { name: "Breakfast", price: 20000, description: "Just oke" },
-  {
-    name: "Lunch",
-    price: 40000,
-    description: "Having lunch at the company with collegue",
-  },
-  { name: "Dinner", price: 10000, description: "" },
-  {
-    name: "Coffee",
-    price: 40000,
-    description: "Drinking coffee helps us sleep better",
+    created: '07/08/2022 - 07:30:20',
   },
 ];
 
@@ -56,12 +50,13 @@ const SpendingList = () => {
   return (
     <Wrapper>
       {contents.map((content, i) => (
-        <Item>
+        <Item key={i}>
           <NameAndPriceContainer>
             <Name>{content.name}</Name>
             <Price>{content.price}</Price>
           </NameAndPriceContainer>
           <Description>{content.description}</Description>
+          <AddedTime>{content.created}</AddedTime>
         </Item>
       ))}
     </Wrapper>
@@ -119,5 +114,11 @@ const Description = styled.div`
   overflow: hidden;
   color: #2f2f2f;
 `;
+
+const AddedTime = styled.div`
+    height: 40px;
+    display: flex;
+    align-items: center;
+`
 
 export default SpendingList;
