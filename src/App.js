@@ -1,14 +1,10 @@
-import React from 'react'
-import LoginPage from './components/Page/LoginPage';
-import SpendingAdd from './components/Page/SpendingAdd';
-import SpendingList from './components/Page/SpendingList';
+import React from "react";
+import LoginPage from "./components/page/LoginPage";
+import SpendingAdd from "./components/page/SpendingAdd";
+import SpendingList from "./components/page/SpendingList";
 
 function App() {
-  return (
-    <div>
-      <SpendingList />
-    </div>
-  );
+  return <SpendingList />;
 }
 
 export default App;
