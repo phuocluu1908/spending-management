@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Filter from "../sub-components/Filter";
+import editIcon from "../assets/edit-icon.png";
 
 const SpendingList = () => {
-  const spending = useSelector(state => state.spending)
+  const spending = useSelector((state) => state.spending);
 
   return (
     <Wrapper>
@@ -15,7 +15,12 @@ const SpendingList = () => {
             <Price>{content.price}</Price>
           </NameAndPriceContainer>
           <Description>{content.description}</Description>
-          <AddedTime>{content.created}</AddedTime>
+          <AddedTimeAndUpdateWrapper>
+            <AddedTime>{content.created}</AddedTime>
+            <EditIconWrapper>
+              <EditIcon src={editIcon} />
+            </EditIconWrapper>
+          </AddedTimeAndUpdateWrapper>
         </Item>
       ))}
     </Wrapper>
@@ -74,10 +79,30 @@ const Description = styled.div`
   color: #2f2f2f;
 `;
 
+const AddedTimeAndUpdateWrapper = styled.div`
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 const AddedTime = styled.div`
-    height: 40px;
-    display: flex;
-    align-items: center;
-`
+  height: 40px;
+  display: flex;
+  align-items: center;
+`;
+
+const EditIconWrapper = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const EditIcon = styled.img`
+  width: 20px;
+  height: 20px;
+`;
 
 export default SpendingList;
