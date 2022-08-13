@@ -15,8 +15,7 @@ const screens = {
 };
 
 const Route = () => {
-    const screen = useSelector((state) => state.screen);
-    console.log({ screen })
+  const screen = useSelector((state) => state.screen.value);
 
   const Component = screens[screen];
   return <Component />;

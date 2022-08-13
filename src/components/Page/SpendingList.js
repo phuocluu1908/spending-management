@@ -1,10 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { updateScreen } from "../../store/Screen";
+import { SPENDING_UPDATE } from "../../store/Screen/constants";
 import editIcon from "../assets/edit-icon.png";
 
 const SpendingList = () => {
+  const dispatch = useDispatch()
   const spending = useSelector((state) => state.spending);
+
+  const onUpdateScreen = () => {
+    dispatch(updateScreen(SPENDING_UPDATE))
+  }
 
   return (
     <Wrapper>
@@ -17,7 +24,7 @@ const SpendingList = () => {
           <Description>{content.description}</Description>
           <AddedTimeAndUpdateWrapper>
             <AddedTime>{content.created}</AddedTime>
-            <EditIconWrapper>
+            <EditIconWrapper onClick={onUpdateScreen}>
               <EditIcon src={editIcon} />
             </EditIconWrapper>
           </AddedTimeAndUpdateWrapper>

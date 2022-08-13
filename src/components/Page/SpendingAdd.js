@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { SPENDING_ADD } from "../../store/Screen/constants";
 import { addSpending } from "../../store/Spending";
 import Button from "../common/Button";
 import TextField from "../common/TextField";
 
-const SpendingAdd = ({ backToListPage }) => {
+const SpendingAdd = () => {
+  const screen = useSelector(state => state.screen.value)
   const dispatch = useDispatch();
   const [spendingInfo, setSpendingInfo] = useState({
     name: "",
@@ -16,12 +18,14 @@ const SpendingAdd = ({ backToListPage }) => {
   const addSpendingAction = () => {
     const created = new Date();
     dispatch(addSpending({ ...spendingInfo, created }));
-    backToListPage();
   };
 
   const onChange = (e, type) => {
     setSpendingInfo((prevState) => ({ ...prevState, [type]: e.target.value }));
   };
+
+  const buttonText = screen === SPENDING_ADD ? 'Add' : 'Update'
+
   return (
     <Wrapper>
       <TextField
@@ -39,7 +43,7 @@ const SpendingAdd = ({ backToListPage }) => {
         value={spendingInfo.description}
         onChange={(e) => onChange(e, "description")}
       />
-      <Button text="Add" onClick={addSpendingAction} />
+      <Button text={buttonText} onClick={addSpendingAction} />
     </Wrapper>
   );
 };

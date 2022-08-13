@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SPENDING_LIST } from "./constants";
 
-const initialState = SPENDING_LIST
-  
+const initialState = { value: SPENDING_LIST };
+
 export const screenSlice = createSlice({
   name: "screen",
   initialState,
   reducers: {
     updateScreen: (state, { payload }) => {
-      state = payload
+      state.value = payload;
     },
   },
 });
