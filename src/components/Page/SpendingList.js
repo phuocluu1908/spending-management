@@ -5,7 +5,6 @@ import Filter from "../sub-components/Filter";
 
 const SpendingList = () => {
   const spending = useSelector(state => state.spending)
-  console.log({ spending })
 
   return (
     <Wrapper>
