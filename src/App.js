@@ -5,7 +5,7 @@ import SpendingList from "./components/page/SpendingList";
 function App() {
   const [isAdd, setIsAdd] = useState(false);
   const backToListPage = () => setIsAdd(false)
-  console.log('updating...')
+  console.log('testing...')
   if (isAdd) {
     return <SpendingAdd backToListPage={backToListPage} />;
   }
