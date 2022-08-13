@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginPage from "./components/page/LoginPage";
 import SpendingAdd from "./components/page/SpendingAdd";
 import SpendingList from "./components/page/SpendingList";
 
 function App() {
-  return <SpendingList />;
+  const [isAdd, setIsAdd] = useState(false);
+
+  const backToListPage = () => setIsAdd(false)
+
+  if (isAdd) {
+    return <SpendingAdd backToListPage={backToListPage} />;
+  }
+  return (
+    <>
+      <SpendingList />
+      <button onClick={() => setIsAdd(true)}>Add go add screen</button>
+    </>
+  );
 }
 
 export default App;

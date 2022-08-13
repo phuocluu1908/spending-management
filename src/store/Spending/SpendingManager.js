@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { formatSpendingPayloadBeforeAdd } from "./helper";
 
 const initialState = [
   {
@@ -37,18 +38,10 @@ export const spendingSlice = createSlice({
   name: "speding",
   initialState,
   reducers: {
-    addSpeding: (state, payload) => {
-      state.values.push(payload);
+    addSpending: (state, { payload }) => {
+      const newPayload = formatSpendingPayloadBeforeAdd(payload)
+      state.push(newPayload);
     },
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload;
-    // },
   },
 });
 
