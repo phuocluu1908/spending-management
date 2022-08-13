@@ -7,7 +7,7 @@ function App() {
   const [isAdd, setIsAdd] = useState(false);
 
   const backToListPage = () => setIsAdd(false)
-
+  console.log('just for test purpose')
   if (isAdd) {
     return <SpendingAdd backToListPage={backToListPage} />;
   }
