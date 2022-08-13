@@ -1,0 +1,4 @@
+export const HOME = 'HOME'
+export const SPENDING_LIST = 'SPENDING_LIST'
+export const SPENDING_ADD = 'SPENDING_ADD'
+export const SPENDING_UPDATE = 'SPENDING_UPDATE'

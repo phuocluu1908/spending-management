@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Route from "./components/page/Route";
 import SpendingAdd from "./components/page/SpendingAdd";
 import SpendingList from "./components/page/SpendingList";
 
@@ -11,8 +12,7 @@ function App() {
   }
   return (
     <>
-      <SpendingList />
-      <button onClick={() => setIsAdd(true)}>Add go add screen</button>
+      <Route />
     </>
   );
 }
